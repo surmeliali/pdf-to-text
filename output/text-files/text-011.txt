@@ -1,0 +1,90 @@
+Perceiver: General Perception with Iterative Attention
+
+Cordonnier, J.-B., Loukas, A., and Jaggi, M. On the relationship between self-attention and convolutional layers.
+In Proceedings of International Conference on Learning
+Representations (ICLR), 2020.
+Correia, G. M., Niculae, V., and Martins, A. F. Adaptively
+sparse Transformers. In Conference on Empirical Methods in Natural Language Processing (EMNLP), 2019.
+Cubuk, E. D., Zoph, B., Shlens, J., and Le, Q. V. Randaugment: Practical automated data augmentation with a
+reduced search space. In Proceedings of IEEE Conference
+on Computer Vision and Pattern Recognition Workshops
+(CVPRW), 2020.
+Dai, Z., Yang, Z., Yang, Y., Carbonell, J., Le, Q. V., and
+Salakhutdinov, R. Transformer-XL: Attentive language
+models beyond a fixed-length context. In Annual Meetings of the Association for Computational Linguistics,
+2019.
+Dehghani, M., Gouws, S., Vinyals, O., Uszkoreit, J., and
+Kaiser, L. Universal Transformers. In Proceedings of
+International Conference on Learning Representations
+(ICLR), 2019.
+Deng, J., Dong, W., Socher, R., Li, L.-J., Li, K., and Fei-Fei,
+L. ImageNet: A large-scale hierarchical image database.
+In Proceedings of IEEE Conference on Computer Vision
+and Pattern Recognition (CVPR), 2009.
+Devlin, J., Chang, M.-W., Lee, K., and Toutanova, K. BERT:
+Pre-training of deep bidirectional Transformers for language understanding. In Annual Conference of the North
+American Chapter of the Association for Computational
+Linguistics (NAACL), 2019.
+Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn,
+D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M.,
+Heigold, G., Gelly, S., et al. An image is worth 16x16
+words: Transformers for image recognition at scale. In
+Proceedings of International Conference on Learning
+Representations (ICLR), 2021.
+Esteves, C., Allen-Blanchette, C., Makadia, A., and Daniilidis, K. Learning SO(3) equivariant representations with
+spherical CNNs. In Proceedings of European Conference
+on Computer Vision (ECCV), 2018.
+
+Ford, L., Tang, H., Grondin, F., and Glass, J. R. A deep
+residual network for large-scale acoustic scene analysis.
+In Proceedings of Interspeech, pp. 2568–2572, 2019.
+Fukushima, K. Neocognitron: A self-organizing neural
+network model for a mechanism of pattern recognition
+unaffected by shift in position. Biological Cybernetics,
+(36):193—-202, 1980.
+Gehring, J., Auli, M., Grangier, D., Yarats, D., and Dauphin,
+Y. N. Convolutional sequence to sequence learning. In
+Proceedings of International Conference on Machine
+Learning (ICML), 2017.
+Gemmeke, J. F., Ellis, D. P., Freedman, D., Jansen, A.,
+Lawrence, W., Moore, R. C., Plakal, M., and Ritter, M.
+Audio Set: An ontology and human-labeled dataset for
+audio events. In IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2017.
+Girdhar, R., Carreira, J., Doersch, C., and Zisserman, A.
+Video action Transformer network. In Proceedings of
+IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2019.
+Goyal, A., Didolkar, A., Lamb, A., Badola, K., Ke,
+N. R., Rahaman, N., Binas, J., Blundell, C., Mozer,
+M., and Bengio, Y. Coordination among neural modules through a shared global workspace. arXiv preprint
+arXiv:2103.01197, 2021.
+Graves, A., Mohamed, A., and Hinton, G. Speech recognition with deep recurrent neural networks. In IEEE International Conference on Acoustics, Speech and Signal
+Processing (ICASSP), 2013.
+Graves, A., Wayne, G., and Danihelka, I. Neural Turing
+machines. arXiv preprint arXiv:1410.5401, 2014.
+Guo, M.-H., Cai, J.-X., Liu, Z.-N., Mu, T.-J., Martin, R. R.,
+and Hu, S.-M. Pct: Point Cloud Transformer. arXiv
+preprint arXiv:2012.09688, 2020.
+He, K., Zhang, X., Ren, S., and Sun, J. Deep residual
+learning for image recognition. In Proceedings of IEEE
+Conference on Computer Vision and Pattern Recognition
+(CVPR), 2016.
+Hendrycks, D. and Gimpel, K. Gaussian error linear units
+(GELUs). arXiv preprint arXiv:1606.08415, 2016.
+
+Fayek, H. M. and Kumar, A. Large scale audiovisual learning of sounds with weakly labeled data. In Proceedings of
+International Joint Conference on Artificial Intelligence,
+2020.
+
+Hendrycks, D., Mu, N., Cubuk, E. D., Zoph, B., Gilmer,
+J., and Lakshminarayanan, B. AugMix: A simple data
+processing method to improve robustness and uncertainty.
+arXiv preprint arXiv:1912.02781, 2019.
+
+Felleman, D. J. and Essen, D. C. V. Distributed hierarchical processing in the primate cerebral cortex. Cerebral
+Cortex, 1(1):1–47, 1991.
+
+Ho, J., Kalchbrenner, N., Weissenborn, D., and Salimans, T.
+Axial attention in multidimensional Transformers. arXiv
+preprint arXiv:1912.12180, 2019.
+
+

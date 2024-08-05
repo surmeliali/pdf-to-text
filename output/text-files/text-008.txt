@@ -1,0 +1,115 @@
+Perceiver: General Perception with Iterative Attention
+
+Model / Inputs
+Benchmark (Gemmeke et al., 2017)
+Attention (Kong et al., 2018)
+Multi-level Attention (Yu et al., 2018)
+ResNet-50 (Ford et al., 2019)
+CNN-14 (Kong et al., 2020)
+CNN-14 (no balancing & no mixup) (Kong et al., 2020)
+G-blend (Wang et al., 2020c)
+Attention AV-fusion (Fayek & Kumar, 2020)
+Perceiver (raw audio)
+Perceiver (mel spectrogram)
+Perceiver (mel spectrogram - tuned)
+
+Audio
+31.4
+32.7
+36.0
+38.0
+43.1
+37.5
+32.4
+38.4
+38.3
+38.4
+-
+
+Video
+18.8
+25.7
+25.8
+25.8
+-
+
+A+V
+41.8
+46.2
+43.5
+43.2
+44.2
+
+Table 3. Perceiver performance on AudioSet, compared to state-of-the-art models (mAP, higher is better).
+
+softmax outputs are very sparse and hard to interpret. This
+model uses unshared weights in its initial cross-attention,
+but shares weights for all subsequent layers. The initial
+and later cross-attention layers produce qualitatively different attention maps: while the early modules shows clear
+traces of the input image (the dog pops out in many attention maps), the attention maps of later modules manifest as
+high-frequency plaid lattices. While the attention maps for
+modules 2 and 7 show similar structure, the specific details
+of corresponding maps do vary, which suggests the network attends to different sets of pixels at subsequent stages.
+The banded, variable-frequency structure of the attention
+maps appears to reflect the spatial frequency structure of
+the Fourier feature position encodings used on ImageNet.
+This tartan-like pattern is not present in networks with fully
+learned position encodings, suggesting it is at least in part
+due to the Fourier features.
+4.2. Audio and video – AudioSet
+We experimented with audio event classification in video
+using AudioSet (Gemmeke et al., 2017), a large dataset with
+1.7M 10s long training videos and 527 classes. Videos may
+have multiple labels so we use a sigmoid cross entropy loss
+and evaluate using mean average precision (mAP). We evaluate the Perceiver using audio (using either the raw audio
+waveform or mel spectrogram), video, and audio + video as
+inputs. We sample 32-frame clips (1.28s at 25fps) in training; for evaluation we split the videos into 16 overlapping
+32-frame clips, covering the whole 10s, and average the
+scores. We train models for 100 epochs.
+Given the scale of the dataset we used a faster version of the
+ImageNet model with only 2 attention iterations instead of
+8, but 8 self-attention layers per Transformer block instead
+of 6. We omit weight sharing to compensate for the smaller
+size. We experimented briefly with temporal unrolling – e.g.
+processing one frame per cross-attend – and found that it
+worked well and efficiently for video, but hurt performance
+for audio. Audio may require longer attention context.
+
+Audio only. We use audio sampled at 48Khz resulting in
+61,440 audio samples over 1.28s of video. We experimented
+with two settings: in the first we divide the raw signal into
+segments of 128 elements, for a total of 480 128-d vectors
+and input these to the Perceiver; the second setting uses a
+mel spectrogram resulting in 4800 inputs to the Perceiver,
+once flattened. As augmentations, for raw audio we simply
+sample in time, consistently with the video sampling. For
+spectrograms we use also specaugment (Park et al., 2019).
+Video. A full 32 frame clip at 224x224 resolution has more
+than 2 million pixels. We experimented using tiny spacetime patches with dimensions 2x8x8, resulting in a total
+of 12,544 inputs to the Perceiver. We compute Fourier
+features for horizontal, vertical and time coordinates (scaled
+to [-1, 1]), and concatenated them with the RGB values.
+We use the same model as in the audio experiments but
+now taking space-time patches as input rather than audio.
+We performed color augmentation, inception-type resizing,
+randomly flipping, and cropped to 224x224 resolution.
+Audio + video. In this experiment we feed the Perceiver
+both the 12,544 space-time patches and either 480 raw audio
+vectors or 4,800 spectrogram values. Since modalities are
+fused at input, audio and video inputs need to have the same
+number of channels. We achieve this by concatenating a
+learned, modality-specific encoding to each input. As video
+has more channels, we use an embedding of size 4 for video
+inputs and make the audio encoding as large as necessary
+for the input channels between the two input arrays. This
+encoding doubles as a modality-specific position encoding
+(as discussed in Sec. 3.2), and we found it worked better
+than simply passing the audio encoding through a linear
+layer to match the video. Another thing that proved useful
+was video dropout – entirely zeroing out the video stream
+during training with some probability – a 30% probability
+for each example in each batch worked well. This may
+help the network to not overfit to video: these inputs provide a larger but less discriminative signal on Audioset. We
+observed a more than 3% improvement by using this proce-
+
+

@@ -1,0 +1,102 @@
+Perceiver: General Perception with Iterative Attention
+
+dure; without it the spectrogram-based model scored 39.9%
+mAP (vs. 43.2%) and the raw audio model scored 39.7%
+(vs. 43.5%). After the ICML camera-ready deadline we
+tuned the spectrogram model further, and improved results
+to 44.2 by turning off specaugment and also dropping the
+spectrogram modality with 10% probability.
+Results. Table 3 shows that the Perceiver obtains near stateof-the-art results on both video- and audio-only experiments.
+On raw audio the Perceiver gets 38.4, better than most ConvNet models except CNN-14 (Kong et al., 2020) which uses
+extra AugMix (Hendrycks et al., 2019) and class-balances
+the data – we hope to incorporate this in future work. Without these improvements the CNN-14 model does slightly
+worse than the Perceiver (37.5 mAP). Most previous methods use spectrograms as input but we find we can obtain
+similar performance even when using raw audio.
+Audio+video fusion leads to solid improvements over single
+modalities (and outperforms specialized fusion optimization
+approaches (Wang et al., 2020c)) but is still lower than the
+state-of-the-art approach that uses separate models with late
+fusion (Fayek & Kumar, 2020). We will investigate this in
+future work. We visualize video and audio attention maps
+in Appendix Sec. E.
+4.3. Point clouds – ModelNet40
+ModelNet40 (Wu et al., 2015) is a dataset of point clouds
+derived from 3D triangular meshes spanning 40 object categories. The task is to predict the class of each object, given
+the coordinates of ∼ 2000 points in 3D space. ModelNet is
+small compared to other datasets used in our experiments:
+it has 9,843 training examples and 2,468 testing examples.
+To apply our model, we first preprocess point clouds by
+zero-centering them. To augment in training we apply random per-point scaling (between 0.99 and 1.01) followed by
+zero-mean and unit-cube normalization. We also explored
+random per-point translation (between -0.02 and 0.02) and
+random point-cloud rotation, but we found this did not improve performance.
+We used an architecture with 2 cross-attentions and 6 selfattention layers for each block and otherwise used the same
+architectural settings as ImageNet. We used a higher maximum frequency than for image data to account for the
+irregular sampling structure of point clouds - we used a max
+frequency of 1120 (10× the value used on ImageNet). We
+obtained the best results using 64 frequency bands, and we
+noticed that values higher than 256 generally led to more
+severe overfitting. We used a batch size of 512 and trained
+with LAMB with a constant learning rate of 1 × 10−3 : models saturated in performance within 50,000 training steps.
+Note that state-of-the-art methods on this benchmark are
+quite small and specialized and typically perform much
+
+PointNet++ (Qi et al., 2017)
+ResNet-50 (FF)
+ViT-B-2 (FF)
+ViT-B-4 (FF)
+ViT-B-8 (FF)
+ViT-B-16 (FF)
+Transformer (44x44)
+Perceiver
+
+Accuracy
+91.9
+66.3
+78.9
+73.4
+65.3
+59.6
+82.1
+85.7
+
+Table 4. Top-1 test-set classification accuracy (in %) on ModelNet40. Higher is better. We report best result per model class,
+selected by test-set score. There are no RGB features nor a natural
+grid structure on this dataset. We compare to the generic baselines
+considered in previous sections with Fourier feature encodings of
+positions, as well as to a specialized model: PointNet++ (Qi et al.,
+2017). PointNet++ uses extra geometric features and performs
+more advanced augmentations that we did not consider here and
+are not used for the models in blue.
+
+more sophisticated data augmentation / feature engineering
+procedures, including fitting surfaces to the point clouds
+and using face normals as additional points (Qi et al., 2017).
+Here we are mostly interested in comparing to more generic
+models such as the ImageNet baselines and to assess how
+the various models deal with data that does not conform to
+a grid. Results of the Perceiver compared to the baselines
+are shown in Tab. 4. We arrange each point cloud into a 2D
+grid randomly, then feed it through each model. For ViT we
+varied the size of the patch size used at input.
+
+5. Discussion
+We have presented the Perceiver, a Transformer-based
+model that scales to more than a hundred thousand inputs.
+This opens new avenues for general perception architectures that make few assumptions about their inputs and that
+can handle arbitrary sensor configurations, while enabling
+fusion of information at all levels.
+With great flexibility comes great overfitting, and many of
+our design decisions were made to mitigate this. In future
+work, we would like to pre-train our image classification
+model on very large scale data (Dosovitskiy et al., 2021). We
+obtain strong results on the large AudioSet dataset, which
+has 1.7M examples and where the Perceiver performed competitively with strong and recent state-of-the-art entries on
+audio, video and both combined. On ImageNet the model
+performs on par with ResNet-50 and ViT. When comparing
+these models across all different modalities and combinations considered in the paper, the Perceiver does best overall.
+While we reduced the amount of modality-specific prior
+knowledge in the model, we still employ modality-specific
+augmentation and position encoding. End-to-end modalityagnostic learning remains an interesting research direction.
+
+

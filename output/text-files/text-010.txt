@@ -1,0 +1,90 @@
+Perceiver: General Perception with Iterative Attention
+
+Acknowledgements
+We are grateful to Sander Dieleman and Matt Botvinick for
+reviewing drafts of the paper, to Adrià Recasens Continente
+and Luyu Wang for help with AudioSet (especially Luyu for
+identifying an evaluation bug we had), and to Chris Burgess,
+Fede Carnevale, Mateusz Malinowski, Loı̈c Matthey, David
+Pfau, Adam Santoro, Evan Shelhamer, Greg Wayne, Chen
+Yan, Daniel Zoran and others at DeepMind for helpful conversations and suggestions. We thank Irwan Bello, James
+Betker, Andreas Kirsch, Christian Szegedy, Weidi Xie and
+others for comments on an earlier draft.
+
+References
+Adelson, E. H. and Bergen, J. R. Spatiotemporal energy
+models for the perception of motion. Journal of the
+Optical Society of America A, 2(2):284–299, 1985.
+Alayrac, J.-B., Recasens, A., Schneider, R., Arandjelović,
+R., Ramapuram, J., De Fauw, J., Smaira, L., Dieleman,
+S., and Zisserman, A. Self-supervised multimodal versatile networks. In Proceedings of Neural Information
+Processing Systems (NeurIPS), 2020.
+Arandjelovic, R. and Zisserman, A. Objects that sound.
+In Proceedings of the European conference on computer
+vision (ECCV), 2018.
+Ba, J. L., Kiros, J. R., and Hinton, G. E. Layer normalization.
+arXiv preprint arXiv:1607.06450, 2016.
+Babuschkin, I., Baumli, K., Bell, A., Bhupatiraju, S., Bruce,
+J., Buchlovsky, P., Budden, D., Cai, T., Clark, A., Danihelka, I., Fantacci, C., Godwin, J., Jones, C., Hennigan,
+T., Hessel, M., Kapturowski, S., Keck, T., Kemaev, I.,
+King, M., Martens, L., Mikulik, V., Norman, T., Quan,
+J., Papamakarios, G., Ring, R., Ruiz, F., Sanchez, A.,
+Schneider, R., Sezener, E., Spencer, S., Srinivasan, S.,
+Stokowiec, W., and Viola, F. The DeepMind JAX Ecosystem, 2020. URL http://github.com/deepmind.
+Bahdanau, D., Cho, K., and Bengio, Y. Neural machine
+translation by jointly learning to align and translate. In
+Proceedings of International Conference on Learning
+Representations (ICLR), 2015.
+Bello, I., Zoph, B., Vaswani, A., Shlens, J., and Le, Q. V.
+Attention augmented convolutional networks. In Proceedings of IEEE International Conference on Computer
+Vision (ICCV), 2019.
+Beltagy, I., Peters, M. E., and Cohan, A.
+Longformer: The long-document Transformer. arXiv preprint
+arXiv:2004.05150, 2020.
+Borenstein, E., Sharon, E., and Ullman, S. Combining
+top-down and bottom-up segmentation. In Proceedings
+
+of IEEE Conference on Computer Vision and Pattern
+Recognition Workshops (CVPRW), 2004.
+Bradbury, J., Frostig, R., Hawkins, P., Johnson, M. J., Leary,
+C., Maclaurin, D., Necula, G., Paszke, A., VanderPlas, J.,
+Wanderman-Milne, S., and Zhang, Q. JAX: composable
+transformations of Python+NumPy programs, 2018. URL
+http://github.com/google/jax.
+Brock, A., De, S., Smith, S. L., and Simonyan, K. Highperformance large-scale image recognition without normalization. arXiv preprint arXiv:2102.06171, 2021.
+Bronstein, M., Bruna, J., LeCun, Y., Szlam, A., and Vandergheynst, P. Geometric deep learning: Going beyond
+Euclidean data. IEEE Signal Processing Magazine, 34
+(4):18–42, 2017.
+Carion, N., Massa, F., Synnaeve, G., Usunier, N., Kirillov,
+A., and Zagoruyko, S. End-to-end object detection with
+Transformers. In Proceedings of European Conference
+on Computer Vision (ECCV), 2020.
+Carreira, J., Agrawal, P., Fragkiadaki, K., and Malik, J.
+Human pose estimation with iterative error feedback. In
+Proceedings of IEEE Conference on Computer Vision and
+Pattern Recognition (CVPR), 2016.
+Chen, M., Radford, A., Child, R., Wu, J., Jun, H., Luan,
+D., and Sutskever, I. Generative pretraining from pixels.
+In Proceedings of International Conference on Machine
+Learning (ICML), 2020a.
+Chen, Y.-C., Li, L., Yu, L., El Kholy, A., Ahmed, F., Gan,
+Z., Cheng, Y., and Liu, J. UNITER: Learning UNiversal
+Image-TExt Representations. In Proceedings of European
+Conference on Computer Vision (ECCV), 2020b.
+Child, R., Gray, S., Radford, A., and Sutskever, I. Generating long sequences with sparse Transformers. arXiv
+preprint arXiv:1904.10509, 2019.
+Choromanski, K., Likhosherstov, V., Dohan, D., Song, X.,
+Gane, A., Sarlos, T., Hawkins, P., Davis, J., Mohiuddin,
+A., Kaiser, L., Belanger, D., Colwell, L., and Weller, A.
+Rethinking attention with Performers. In Proceedings of
+International Conference on Learning Representations
+(ICLR), 2021.
+Cireşan, D. C., Meier, U., Masci, J., Gambardella, L. M.,
+and Schmidhuber, J. High-performance neural networks
+for visual object classification. Technical report, IDSIA,
+2011.
+Cohen, T. and Welling, M. Group equivariant convolutional
+networks. In Proceedings of International Conference on
+Machine Learning (ICML), 2016.
+
+
